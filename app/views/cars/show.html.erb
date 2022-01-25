@@ -1,0 +1,11 @@
+<% if policy(Car).create? %>
+
+<%= @car.brand %>
+<%= @car.model %>
+<%= @car.car_type %>
+<%= @car.year %>
+<%= @car.plate %>
+<%= @car.color %>
+<%= @car.price %>
+<%= @car.user.name %>
+<% end %>

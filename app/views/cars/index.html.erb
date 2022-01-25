@@ -1,0 +1,14 @@
+<div class="row">
+    <% @cars.each do |car| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to car_path(car), class:"text-decoration-none" do %>
+          <div class="card-category">
+            <%= car.brand %>
+            <%= car.model %>
+            <%= car.year %>
+            <%= car.price %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
