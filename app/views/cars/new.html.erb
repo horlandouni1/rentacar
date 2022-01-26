@@ -1,0 +1,24 @@
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Post your Car</h3>
+        <%= simple_form_for(@car) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.input :brand, placeholder: 'Brand' %>
+          <%= f.input :model, placeholder: 'Model' %>
+          <%= f.input :year, placeholder: 'Year' %>
+          <%= f.input :car_type, placeholder: 'Type' %>
+          <%= f.input :color, placeholder: 'Color' %>
+          <%= f.input :plate, placeholder: 'Plate Number' %>
+          <div type = number>
+          <%= f.input :price, placeholder: 'Price', as: :numeric %>
+          </div>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
