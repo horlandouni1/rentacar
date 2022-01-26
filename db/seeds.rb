@@ -6,21 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# User.destroy_all
+  User.destroy_all
 
-# users = User.create!({ name: "Carlos", email: "coalva.94@gmail.com", password: "12345678" })
-# users.save
-
-Car.destroy_all
-
-car = Car.create!(
-  plate: "B2C123",
-  year: "2018",
-  model: "Rio",
-  color: "Red",
-  price: "20",
-  user_id: 3,
-  brand: "Kia",
-  car_type: '4x4'
-)
-car.save
+  usuario1 = User.create!({email:"crdsis@gmail.com", name:"Cristopher", password: "123456"})
+  auto1= Car.create!({plate: "ASD-3123", year: 2022, model:"dToyoyta", color:"red", price:"dad", user_id:1, brand:"toyota"})
+  usuario1.save
+  auto1.save
