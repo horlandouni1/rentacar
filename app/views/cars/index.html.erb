@@ -1,14 +1,56 @@
-<div class="row">
-    <% @cars.each do |car| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to car_path(car), class:"text-decoration-none" do %>
-          <div class="card-category">
-            <%= car.brand %>
-            <%= car.model %>
-            <%= car.year %>
-            <%= car.price %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+<%#
+<div class="container-filter">
+
+  <div class="row border">
+
+    <div class="col">
+      <p>Mas barato</p>
+    </div>
+    <div class="col">
+      <p>Recomendado</p>
+    </div>
+    <div class="col">
+      <p>Más cercanos</p>
+    </div>
+
   </div>
+
+</div> %>
+
+<div class="container p-2">
+  <% @cars.each do |car| %>
+    <div class="row container-card">
+
+      <div class="col-sm-3 py-3 ">
+      <div class="container d-flex justify-content-center align-items-center">
+        <img src="https://images.unsplash.com/photo-1511527844068-006b95d162c2?ixlib=rb-1.2.1&ixid=MnwxM[…] 90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" class="img-fluid"/>
+      </div>
+      </div>
+
+      <div class="col-sm-6 border p-4 justify-content-center align-items-center">
+      <div class="container-detail">
+        <div class="container">
+        <h2><%= car.model %> - <%= car.brand %></h2>
+        </div>
+        <div class="container">
+        <p>Año: <%= car.year %> - Plate: <%= car.plate %> </p>
+        </div>
+        <div class="container">
+        <p>Color: <%= car.color %></p>
+        </div>
+      </div>
+      </div>
+
+      <div class="col-sm-3 p-3 justify-content-center align-items-center">
+      <div class="container-price">
+        <div class="container">
+        <p id = "price"><strong>S/<%= car.price %></strong></p>
+        <p>Precio Total</p>
+          <%= link_to "mostrar", car_path(car), class:"btn btn-primary"%>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>

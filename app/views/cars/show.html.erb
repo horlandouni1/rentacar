@@ -30,14 +30,14 @@
             </button>
           </div>
         <div class="card-product-infos">
-          <h2> Ford Focus 2020</h2> <%# cars.model cars.year %>
+          <h2> <%= @car.model%> <%= @car.brand%> </h2> <%# cars.model cars.year %>
           <div class="container">
             <div class="row">
-              <div class="col">Color Petroleo repsol</div>
-              <div class="col"> Asientos 5</div>
+              <div class="col">Color : <%= @car.color%> </div>
+              <div class="col"> Año <%= @car.year%> </div>
             </div>
             <div class="row">
-              <div class="col">Maletera Mediana </div>
+              <div class="col">Placa <%=@car.plate%> </div>
               <div class="col">ubicacion: San Isidro</div>
             </div>
           </div>
@@ -93,11 +93,18 @@
 
     </div>
     <div class="col-xs-12 col-md-3" >
+      <div class="card date mb-3">
+       <h5>Ingrese la fecha de la reserva</h5>
+       <p>Inicio</p>
+       <input placeholder="Selected date" id="FechaInicio" type="date" id="date-picker-example" class="form-control datepicker">
+       <p>Fin</p>
+       <input placeholder="Selected date" id="FechaFin" type="date" id="date-picker-example" class="form-control datepicker">
+      </div>
       <div class="card-price card">
         <h5>Desglose del precio del coche</h5>
         <div class="row">
-          <div class="col">Precio del alquiler</div>
-          <div class="col">USD 167.40</div>
+          <div class="col">Precio diario del alquiler</div>
+          <div class="col" id="Pricecar"> USD <%= @car.price%> </div>
         </div>
         <div class="row">
           <div class="col">Entrega a domicilio</div>
@@ -105,11 +112,20 @@
         </div>
         <div class="row pricetotal">
           <div class="col">Precio Final</div>
-          <div class="col">USD 177.40</div>
+          <div class="col" id="PrecioTotal">USD</div>
         </div>
 
       </div>
     </div>
+    <script>
+    let inicio = new Date(document.getElementById("FechaInicio"))
+    let fin = new Date(document.getElementById("FechaFin"))
+    let dif = (fin-incio)/1000/60/60/24;
+    let PrecioTotal = document.getElementById("PrecioTotal")
+    PrecioTotal.innerHTML = "hola";
+    document.addEventListener("click",CalcularDias)
+
+    </script>
 
   </div>
   <%= link_to "Book now", "#", class: "btn btn-flat mt-4 " %>

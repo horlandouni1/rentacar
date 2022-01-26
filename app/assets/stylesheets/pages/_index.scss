@@ -1,2 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
+.container-card {
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#price {
+  font-size: 24px
+}
