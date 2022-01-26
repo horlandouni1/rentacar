@@ -7,6 +7,5 @@ class Car < ApplicationRecord
   validates :brand, presence: true
   validates :price, presence: true
   validates :year, presence: true
-  validates :car_type, presence: true
   validates :color, presence: true
 end
