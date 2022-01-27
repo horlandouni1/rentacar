@@ -1,13 +1,23 @@
 class CarsController < ApplicationController
 
+
   def index
     # authorize Car
     @cars = policy_scope(Car).order(created_at: :desc)
   end
 
   def show
-    @car = Car.find(params[:id])
-    authorize @car
+    if params[:id].is_a?(Integer)
+      @car = Car.find(params[:id])
+      @booking = Booking.new
+      authorize @car
+    elsif params[:id] == "mycars"
+      @cars = policy_scope(Car).order(created_at: :desc)
+      authorize @cars
+      render template: "cars/mycars"
+    end
+
+    # raise
   end
 
   def new

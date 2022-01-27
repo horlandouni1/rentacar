@@ -1,0 +1,38 @@
+<div class="container d-flex justify-content-center align-items-center">
+<h4>Hola, <%= current_user.name %></h4>
+
+</div>
+
+
+<div class="container">
+  <% @bookings.each_with_index do |booking, index| %>
+    <div class="row container-card">
+      <div class="col-sm-3 py-3 ">
+      <div class="container d-flex justify-content-center align-items-center">
+        <img src="https://images.unsplash.com/photo-1511527844068-006b95d162c2?ixlib=rb-1.2.1&ixid=MnwxM[…]         dlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" class="img-fluid"/>
+      </div>
+      </div>
+      <div class="col-sm-6 border p-4 justify-content-center align-items-center">
+      <div class="container-detail">
+        <div class="container">
+        <h2><%= booking.car.model %> - <%= booking.car.brand %></h2>
+        </div>
+        <div class="container">
+        <p>Fecha de Alquiler: - <%= booking.start_date %> - <%= booking.end_date %> </p>
+        </div>
+        <div class="container">
+        <p>Color: <%= booking.car.color %> - <%= booking.car.car_type %></p>
+        </div>
+      </div>
+      </div>
+      <div class="col-sm-3 p-3 justify-content-center align-items-center">
+      <div class="container-price">
+        <div class="container">
+        <p id = "price"><strong>S/<%= booking.car.price.to_i * (Date.parse(booking.end_date) - Date.parse(booking.start_date)).to_i%></strong></p>
+        <p><%= (Date.parse(booking.end_date) - Date.parse(booking.start_date)).to_i %></p>
+        </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
+</div>
