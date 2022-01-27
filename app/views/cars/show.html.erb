@@ -92,43 +92,44 @@
     </div>
 
     </div>
-    <div class="col-xs-12 col-md-3" >
-      <div class="card date mb-3">
-       <h5>Ingrese la fecha de la reserva</h5>
-       <p>Inicio</p>
-       <input placeholder="Selected date" id="FechaInicio" type="date" id="date-picker-example" class="form-control datepicker">
-       <p>Fin</p>
-       <input placeholder="Selected date" id="FechaFin" type="date" id="date-picker-example" class="form-control datepicker">
-      </div>
-      <div class="card-price card">
-        <h5>Desglose del precio del coche</h5>
-        <div class="row">
-          <div class="col">Precio diario del alquiler</div>
-          <div class="col" id="Pricecar"> USD <%= @car.price%> </div>
-        </div>
-        <div class="row">
-          <div class="col">Entrega a domicilio</div>
-          <div class="col">USD 10.00</div>
-        </div>
-        <div class="row pricetotal">
-          <div class="col">Precio Final</div>
-          <div class="col" id="PrecioTotal">USD</div>
-        </div>
 
-      </div>
+<div class="container">
+
+<%= simple_form_for [current_user, @booking] do |f| %>
+  <%= f.input :start_date, :label_html => { :class => 'form-control datepicker'}%>
+  <%= f.input :end_date %>
+  <%= f.hidden_field :car_id, :value => @car.id %>
+  <%= f.submit %>
+<% end %>
+
+
+</div>
+
+
     </div>
+
     <script>
-    let inicio = new Date(document.getElementById("FechaInicio"))
-    let fin = new Date(document.getElementById("FechaFin"))
-    let dif = (fin-incio)/1000/60/60/24;
     let PrecioTotal = document.getElementById("PrecioTotal")
-    PrecioTotal.innerHTML = "hola";
-    document.addEventListener("click",CalcularDias)
+    // PrecioTotal.innerHTML = "hola";
+    // document.addEventListener("click",CalcularDias)
+    const input_fechas  = document.querySelectorAll('.datepicker')
+    input_fechas.forEach((input) => {
+      input.addEventListener("change", (event) => {
+        let inicio = new Date(document.getElementById("FechaInicio").value)
+    let fin = new Date(document.getElementById("FechaFin").value)
+    let dif = (fin-inicio)/1000/60/60/24;
+
+    PrecioTotal.innerHTML = 10 + dif * <%= @car.price%>
+    // cuando dif es diferetne de naN multiplicas y muestras en pantalla
+
+   console.log(inicio)
+   console.log(fin)
+   console.log(dif)
+      })
+    })
 
     </script>
 
   </div>
-  <%= link_to "Book now", "#", class: "btn btn-flat mt-4 " %>
-
 
 </div>
