@@ -3,21 +3,21 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
-        <h3>Post your Car</h3>
+        <h3>Edita tu publicación</h3>
         <%= simple_form_for(@car) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-          <%= f.input :brand, placeholder: 'Brand' %>
-          <%= f.input :model, placeholder: 'Model' %>
-          <%= f.input :year, placeholder: 'Year' %>
-          <%= f.input :car_type, placeholder: 'Type' %>
+          <%= f.input :brand, placeholder: 'Marca' %>
+          <%= f.input :model, placeholder: 'Modelo' %>
+          <%= f.input :year, placeholder: 'Año' %>
+          <%= f.input :car_type, placeholder: 'Tipo' %>
           <%= f.input :color, placeholder: 'Color' %>
-          <%= f.input :plate, placeholder: 'Plate Number' %>
+          <%= f.input :plate, placeholder: 'Placa' %>
           <div type = number>
-          <%= f.input :price, placeholder: 'Price', as: :numeric %>
+          <%= f.input :price, placeholder: 'Precio', as: :numeric %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           </div>
-          <%= f.button :submit, class: "btn btn-success p-3 w-100 rounded" %>
+          <%= f.button :submit, class: "btn btn-success p-3 w-100 rounded"  %>
         <% end %>
       </div>
     </div>

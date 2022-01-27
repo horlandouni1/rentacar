@@ -2,6 +2,7 @@ class CarsController < ApplicationController
 
 
   def index
+    # authorize Car
     @cars = policy_scope(Car).order(created_at: :desc)
   end
 
@@ -35,6 +36,28 @@ class CarsController < ApplicationController
     end
   end
 
+  def edit
+    @car = Car.find(params[:id])
+    authorize @car
+  end
+
+  def update
+    @car = Car.find(params[:id])
+    authorize @car
+    @car.update(find_params)
+    if @car.save
+      redirect_to cars_path(@car)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+    redirect_to cars_path
+  end
+
   private
 
   def find_params
@@ -47,6 +70,7 @@ class CarsController < ApplicationController
       :car_type,
       :color,
       :used_id,
+      photos: []
     )
   end
 end
