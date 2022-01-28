@@ -1,7 +1,7 @@
 <div class="container mt-4">
 <h3> Hola <%=current_user.name %> estas son tus publicaciones</h3>
  <% @cars.each do |car| %>
-    <div class="row container-card">
+    <div class="row container-card d-flex justify-content-center align-items-center">
 
       <div class="col-sm-3 py-3 ">
         <div class="container d-flex justify-content-center align-items-center">
@@ -9,13 +9,13 @@
         </div>
       </div>
 
-      <div class="col-sm-6 border p-4 justify-content-center align-items-center">
+      <div class="col-sm-6 p-4 justify-content-center align-items-center">
       <div class="container-detail">
         <div class="container">
         <h2><%= car.brand %> - <%= car.model %></h2>
         </div>
         <div class="container">
-        <p>Año: <%= car.year %> - Plate: <%= car.plate %> </p>
+        <p>Year: <%= car.year %> - Plate: <%= car.plate %> </p>
         </div>
         <div class="container">
         <p>Color: <%= car.color %></p>
@@ -27,12 +27,16 @@
       <div class="container-price">
         <div class="container">
         <p id = "price"><strong>S/<%= car.price %></strong></p>
-        <p>Precio Total</p>
+        <p>Total Price</p>
           <%# @cars.each do |car| %>
-          <%= link_to "mostrar", car_path(car), class:"btn btn-primary"%>
+          <%= link_to "Show", car_path(car), class:"btn btn-primary"%>
+          <%#= link_to "Update", edit_car_path(car), class:"btn btn-primary"%>
+          <%#= link_to "Delete", car, method: :delete, class:"btn btn-primary"%>
+          <%# end %>
+        </div>
+        <div class="mt-2">
           <%= link_to "Update", edit_car_path(car), class:"btn btn-primary"%>
           <%= link_to "Delete", car, method: :delete, class:"btn btn-primary"%>
-          <%# end %>
         </div>
       </div>
       </div>
