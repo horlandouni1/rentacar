@@ -38,8 +38,8 @@
           </div>
             <div class="card-body">
               <h5 class="card-title"> <%= car.brand%> <%= car.model%> </h5>
-              <p class="card-text"><%= car.brand%> <%= car.model%> del año <%= car.year%> de color <%= car.color%> <br>Type: <%= car.car_type%>  </p>
-              <%= link_to "mostrar", car_path(car), class:"btn btn-primary"%>
+              <p class="card-text"><%= car.color%>  <%= car.brand%> <%= car.model%>  year <%= car.year%>  <br>Type: <%= car.car_type%>  </p>
+              <%= link_to "Show", car_path(car), class:"btn btn-primary"%>
             </div>
           </div>
         </div>

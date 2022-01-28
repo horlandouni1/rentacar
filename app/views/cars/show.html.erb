@@ -14,7 +14,7 @@
             </div>
             <div class="row">
               <div class="col">Placa : <%=@car.plate%> </div>
-              <div class="col">Ubicación : San Isidro</div>
+              <div class="col">Precio : S/<%=@car.price%>.00</div>
             </div>
           </div>
         </div>
@@ -69,44 +69,51 @@
     </div>
     <div class="cols-xs-12 col-md-3">
       <%= simple_form_for [current_user, @booking] do |f| %>
-      <%= f.input :start_date, input_html: { class: "form-control datepicker", type: "date", style:"border-radius:10px;"} %>
-      <%= f.input :end_date, input_html: { class: "form-control datepicker", type: "date", style:"border-radius:10px;"} %>
+      <%= f.input :start_date, input_html: { class: "form-control datepicker", id: "FechaInicio", type: "date", style:"border-radius:10px;"} %>
+      <%= f.input :end_date, input_html: { class: "form-control datepicker", id: "FechaFin", type: "date", style:"border-radius:10px;"} %>
       <%= f.hidden_field :car_id, :value => @car.id %>
-      <%= f.submit  %>
-<% end %>
+      <%= f.submit :reserva  %>
+      <% end %>
+
+      <div class="container-dias p-2 border m-2">
+       <div id ="diftime">Dias de Alquiler:</div>
+       <div >Precio por día: S/<%=@car.price%></div>
+       <div>Comisión: S/10.00</div>
+       <div id="PrecioTotal">Precio Total: S/</div>
+      </div>
+
+
+
     </div>
 
-<div class="container">
 
-
-
-</div>
 
 
     </div>
 
     <script>
-    let PrecioTotal = document.getElementById("PrecioTotal")
-    // PrecioTotal.innerHTML = "hola";
-    // document.addEventListener("click",CalcularDias)
-    const input_fechas  = document.querySelectorAll('.datepicker')
-    input_fechas.forEach((input) => {
-      input.addEventListener("change", (event) => {
-        let inicio = new Date(document.getElementById("FechaInicio").value)
-    let fin = new Date(document.getElementById("FechaFin").value)
-    let dif = (fin-inicio)/1000/60/60/24;
+      let PrecioTotal = document.getElementById("PrecioTotal")
+      // PrecioTotal.innerHTML = "hola";
+      // document.addEventListener("click",CalcularDias)
+      const input_fechas  = document.querySelectorAll('.datepicker')
+      input_fechas.forEach((input) => {
+        input.addEventListener("change", (event) => {
+          let inicio = new Date(document.getElementById("FechaInicio").value)
+      let fin = new Date(document.getElementById("FechaFin").value)
+      let dif = (fin-inicio)/1000/60/60/24;
 
-    PrecioTotal.innerHTML = 10 + dif * <%= @car.price%>
-    // cuando dif es diferetne de naN multiplicas y muestras en pantalla
-
-   console.log(inicio)
-   console.log(fin)
-   console.log(dif)
+      PrecioTotal.innerHTML = `Precio Total: S/ ${ 10 + dif * <%=@car.price%> }`
+      // cuando dif es diferetne de naN multiplicas y muestras en pantalla
+      let difChange = document.getElementById("diftime")
+      difChange.innerHTML = `Dias de Alquiler: ${dif}`
+      console.log(inicio)
+      console.log(fin)
+      console.log(dif)
+      console.log(PrecioTotal)
+        })
       })
-    })
 
     </script>
-
   </div>
 
 </div>
