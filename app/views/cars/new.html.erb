@@ -15,9 +15,8 @@
           <%= f.input :plate, placeholder: 'Plate Number' %>
           <div type = number>
           <%= f.input :price, placeholder: 'Price', as: :numeric %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           </div>
-          <%= f.button :submit, class: "btn btn-success p-3 w-100 rounded" %>
+          <%= f.button :submit %>
         <% end %>
       </div>
     </div>

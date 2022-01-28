@@ -120,14 +120,13 @@
 
     </div>
 
-    <%= simple_form_for(@booking) do |f| %>
-          <%= f.input :start_date, placeholder: 'Brand' %>
+    <%# <%= simple_form_for [current_user, @booking] do |f| %> %>
+      <%# <%= f.input :start_date, :label_html => { :class => 'form-control datepicker'}%> %>
+      <%# <%= f.input :end_date %> %>
+      <%# <%= f.hidden_field :car_id, :value => @car.id %> %>
+      <%# <%= f.submit %> %>
+    <%# <% end %> %>
 
-          <div type = number>
-          <%= f.input :price, placeholder: 'Price', as: :numeric %>
-          </div>
-          <%= f.button :submit %>
-        <% end %>
 
     <script>
     const preciodiario = document.getElementById("Pricecar").innerHTML

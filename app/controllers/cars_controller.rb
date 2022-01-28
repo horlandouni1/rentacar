@@ -7,15 +7,16 @@ class CarsController < ApplicationController
   end
 
   def show
-    if params[:id].is_a?(Integer)
-      @car = Car.find(params[:id])
-      @booking = Booking.new
-      authorize @car
-    elsif params[:id] == "mycars"
-      @cars = policy_scope(Car).order(created_at: :desc)
-      authorize @cars
-      render template: "cars/mycars"
-    end
+    @car = Car.find(params[:id])
+    # if params[:id].is_a?(Integer)
+    #   @car = Car.find(params[:id])
+    #   @booking = Booking.new
+    #   authorize @car
+    # elsif params[:id] == "mycars"
+    #   @cars = policy_scope(Car).order(created_at: :desc)
+    #   authorize @cars
+    #   render template: "cars/mycars"
+    # end
 
     # raise
   end
