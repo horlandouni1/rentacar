@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   def index
     # Obtener los bookings de un usuario
     user = User.find params[:user_id]
-    @bookings = policy_scope(user.bookings)
+    @bookings = policy_scope(user.bookings).reverse
 
   end
 

@@ -7,6 +7,7 @@ class CarsController < ApplicationController
 
   def mycars
     @cars = Car.where(user_id: current_user.id)
+
     authorize @cars
   end
 
