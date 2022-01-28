@@ -9,7 +9,7 @@
     <div class="row container-card">
       <div class="col-sm-3 py-3 ">
       <div class="container d-flex justify-content-center align-items-center">
-        <img src="https://images.unsplash.com/photo-1511527844068-006b95d162c2?ixlib=rb-1.2.1&ixid=MnwxM[…]         dlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" class="img-fluid"/>
+          <%= cl_image_tag booking.car.photos.first.key, default_image: "placeholder_yne9j2", height: 250, width: 250, crop: :fill %>
       </div>
       </div>
       <div class="col-sm-6 border p-4 justify-content-center align-items-center">
@@ -27,12 +27,9 @@
       </div>
       <div class="col-sm-3 p-3 justify-content-center align-items-center">
       <div class="container-price">
-        <div class="container">
-        <% a =  booking.start_date  %>
-        <%# <%= Date.strptime(String.new(a),'%d-%m-%Y') %> %>
-        <%# <%=  (Date.strptime('12-05-2020','%d-%m-%Y') - Date.new(2020,5,3)).to_i %> %>
-        <%# <p id = "price"><strong>S/<%= booking.car.price.to_i * (Date.strptime(booking.end_date,'%d-%m-%Y') - Date.strptime(booking.start_date,'%d-%m-%Y')).to_i</strong></p> %>
-        <%# <p><%= (Datstrptimese(booking.end_date,'%d-%m-%Y') - Date.strptime(booking.start_date,'%d-%m-%Y')).to_i</p> %>
+        <div class="container m-4 justify-content-center align-items-center">
+        <p> <strong> Dias de Alquiler : </strong> <%= costoTotal = ((booking.end_date).to_date - (booking.start_date).to_date).to_i %></p>
+        <p><strong> Costo Total : </strong>S/<%= (costoTotal) + (booking.car.price).to_i + 10 %></p>
         </div>
       </div>
       </div>
