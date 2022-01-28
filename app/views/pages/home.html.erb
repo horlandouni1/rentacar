@@ -6,7 +6,7 @@
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
         <%= link_to "SUV", cars_path %>
       </div>
-      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
         <%= link_to "MOTO", cars_path %>
       </div>
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
@@ -33,12 +33,13 @@
       <% @cars.each do |car|%>
         <div class="col-12 col-md-6 col-lg-4 mt-3">
           <div class="card">
-            <img src="https://images.unsplash.com/photo-1603386765563-15a8874362aa?ixlib=rb-1.2.1&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" class="card-img-top" alt="...">
+          <div class="container d-flex justify-content-center align-items-center">
+            <%= cl_image_tag car.photos.first.key, default_image: "placeholder_yne9j2", height: 250, width: 250, crop: :fill %>
+          </div>
             <div class="card-body">
               <h5 class="card-title"> <%= car.brand%> <%= car.model%> </h5>
               <p class="card-text"><%= car.color%>  <%= car.brand%> <%= car.model%>  year <%= car.year%>  <br>Type: <%= car.car_type%>  </p>
               <%= link_to "Show", car_path(car), class:"btn btn-primary"%>
-
             </div>
           </div>
         </div>
