@@ -1,5 +1,5 @@
-<div class="container d-flex justify-content-center align-items-center">
-<h4>Hola, <%= current_user.name %></h4>
+<div class="container d-flex mt-4">
+<h4>Hi, <%= current_user.name %> these are your recent reservations</h4>
 
 </div>
 
@@ -28,8 +28,11 @@
       <div class="col-sm-3 p-3 justify-content-center align-items-center">
       <div class="container-price">
         <div class="container">
-        <p id = "price"><strong>S/<%= booking.car.price.to_i * (Date.parse(booking.end_date) - Date.parse(booking.start_date)).to_i%></strong></p>
-        <p><%= (Date.parse(booking.end_date) - Date.parse(booking.start_date)).to_i %></p>
+        <% a =  booking.start_date  %>
+        <%# <%= Date.strptime(String.new(a),'%d-%m-%Y') %> %>
+        <%# <%=  (Date.strptime('12-05-2020','%d-%m-%Y') - Date.new(2020,5,3)).to_i %> %>
+        <%# <p id = "price"><strong>S/<%= booking.car.price.to_i * (Date.strptime(booking.end_date,'%d-%m-%Y') - Date.strptime(booking.start_date,'%d-%m-%Y')).to_i</strong></p> %>
+        <%# <p><%= (Datstrptimese(booking.end_date,'%d-%m-%Y') - Date.strptime(booking.start_date,'%d-%m-%Y')).to_i</p> %>
         </div>
       </div>
       </div>

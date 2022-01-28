@@ -8,12 +8,12 @@
     <% @car.photos.each do |photo| %>
       <% if @car.photos.first == photo %>
       <div class="carousel-item active">
-      <% else %>
-      <div class="carousel-item">
-      <% end %>
+        <% else %>
+        <div class="carousel-item">
+        <% end %>
         <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "d-block w-100" %>
       </div>
-    <% end %>
+    <% end%>
   </div>
   <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

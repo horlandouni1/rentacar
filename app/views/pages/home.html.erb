@@ -1,26 +1,47 @@
-    <%= render 'pages/components/carousel' %>
-         <h3>Categorias</h3>
-     <div class="container d-flex flex-row flex-nowrap overflow-auto cont-category">
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
-          SUV
-        </div>
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
-          MINIVAN
-        </div>
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
-          CAMIONETA
-        </div>
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
-          SARTEN
-        </div>
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
-          JEEPETA
-        </div>
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
-          4x4
-        </div>
-        <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
-          MOTOS
-        </div>
+<%= render 'pages/components/carousel' %>
+
+  <div class="container">
+    <h3>Categories</h3>
+    <div class="container d-flex flex-row flex-nowrap overflow-auto cont-category">
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
+        <%= link_to "SUV", cars_path %>
       </div>
-     <%= render 'pages/components/cardsgrid' %>
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
+        <%= link_to "MOTO", cars_path %>
+      </div>
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
+        <%= link_to "CAMIONETA", cars_path %>
+      </div>
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
+        <%= link_to "MINIVAN", cars_path %>
+      </div>
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
+        <%= link_to "CAMION", cars_path %>
+      </div>
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
+        <%= link_to "4X4", cars_path %>
+      </div>
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
+        <%= link_to "CONVERTIBLE", cars_path %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container w-100 mt-3">
+    <h4>Most Recent</h4>
+    <div class="row">
+      <% @cars.each do |car|%>
+        <div class="col-12 col-md-6 col-lg-4 mt-3">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1603386765563-15a8874362aa?ixlib=rb-1.2.1&ixid=MnwxM[…]90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"> <%= car.brand%> <%= car.model%> </h5>
+              <p class="card-text"><%= car.brand%> <%= car.model%> del año <%= car.year%> de color <%= car.color%> <br>Type: <%= car.car_type%>  </p>
+              <%= link_to "mostrar", car_path(car), class:"btn btn-primary"%>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :bookings
+    resources :cars, get: ':user_id/cars', :as => 'carros' ,to: 'cars#mycars'
   end
 end
