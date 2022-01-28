@@ -21,7 +21,7 @@
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
         <%= link_to "4X4", cars_path %>
       </div>
-      <div class="card-category" style="min-width: 30s0px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
+      <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmZ2bjMZmpDx4iOytQauc8ldztrrJbi8Inmg&usqp=CAU)">
         <%= link_to "CONVERTIBLE", cars_path %>
       </div>
     </div>
@@ -37,7 +37,8 @@
             <div class="card-body">
               <h5 class="card-title"> <%= car.brand%> <%= car.model%> </h5>
               <p class="card-text"><%= car.brand%> <%= car.model%> del año <%= car.year%> de color <%= car.color%> <br>Tipo: <%= car.car_type%>  </p>
-              <%= link_to "Mostrar", cars_path, class:"btn btn-primary"%>
+              <%= link_to "mostrar", car_path(car), class:"btn btn-primary"%>
+
             </div>
           </div>
         </div>
