@@ -2,7 +2,13 @@ class CarsController < ApplicationController
   include Pundit
   skip_before_action :authenticate_user!, only: :index
   skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :mycars
 
+
+  def mycars
+    @cars = Car.where(user_id: current_user.id)
+    authorize @cars
+  end
 
   def index
     # authorize Car
