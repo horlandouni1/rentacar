@@ -1,4 +1,7 @@
 class CarsController < ApplicationController
+  include Pundit
+  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :show
 
 
   def index
@@ -7,14 +10,13 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
     # if params[:id].is_a?(Integer)
-    #   @car = Car.find(params[:id])
-    #   @booking = Booking.new
+      @car = Car.find(params[:id])
+       @booking = Booking.new
     #   authorize @car
     # elsif params[:id] == "mycars"
     #   @cars = policy_scope(Car).order(created_at: :desc)
-    #   authorize @cars
+       authorize @car
     #   render template: "cars/mycars"
     # end
 
@@ -74,4 +76,5 @@ class CarsController < ApplicationController
       photos: []
     )
   end
+
 end
