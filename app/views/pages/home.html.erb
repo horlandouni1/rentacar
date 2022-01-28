@@ -4,19 +4,19 @@
     <h3>Categories</h3>
     <div class="container d-flex flex-row flex-nowrap overflow-auto cont-category">
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
-        <%= link_to "SUV", cars_path %>
+        <%= link_to "SEDAN", cars_path %>
       </div>
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)">
         <%= link_to "MOTO", cars_path %>
       </div>
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
-        <%= link_to "CAMIONETA", cars_path %>
+        <%= link_to "SUV", cars_path %>
       </div>
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://autotest.com.ar/wp-content/uploads/2021/02/PEUGEOT-208-LIKE-AUTOS.jpg)">
         <%= link_to "MINIVAN", cars_path %>
       </div>
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
-        <%= link_to "CAMION", cars_path %>
+        <%= link_to "TRUCKS", cars_path %>
       </div>
       <div class="card-category" style="min-width: 300px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVEppn7fiACmU-HWPCogDVxYvmz3jdojA8mw&usqp=CAU)">
         <%= link_to "4X4", cars_path %>
@@ -38,7 +38,7 @@
           </div>
             <div class="card-body">
               <h5 class="card-title"> <%= car.brand%> <%= car.model%> </h5>
-              <p class="card-text"><%= car.color%>  <%= car.brand%> <%= car.model%>  year <%= car.year%>  <br>Type: <%= car.car_type%>  </p>
+              <p class="card-text"><%= car.color%>  <%= car.brand%> <%= car.model%> - Year: <%= car.year%>  <br>Type: <%= car.car_type%>  </p>
               <%= link_to "Show", car_path(car), class:"btn btn-primary"%>
             </div>
           </div>
